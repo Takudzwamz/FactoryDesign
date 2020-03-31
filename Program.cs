@@ -3,6 +3,8 @@
 namespace FactoryDesign
 {
     //Creating Product Interface
+    //Product interface which will provide the signature of the common functionalities
+    //which should be implemented by the concrete product classes.
     public interface CreditCard 
     {
         string GetCardType();
@@ -11,7 +13,10 @@ namespace FactoryDesign
     }
 
     // Creating Concrete Products
+
+    //This is a class implementing the Product interface.
     public class Platinum : CreditCard
+
     {
         public string GetCardType()
         {
@@ -60,6 +65,7 @@ namespace FactoryDesign
         }
     }
     // Creating Abstract Creator
+    //The Abstract Creator declares the factory method, which returns an object of type Product.
     public abstract class CreditCardFactory
     {
         protected abstract CreditCard MakeProduct();
@@ -69,6 +75,7 @@ namespace FactoryDesign
         }
     }
     //Creating Concrete Creator
+    //The Concrete Creator object overrides the factory method to return an instance of a Concrete Product.
     public class MoneyBackFactory : CreditCardFactory
     {
         protected override CreditCard MakeProduct()
